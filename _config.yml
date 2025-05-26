@@ -1,0 +1,21 @@
+title: Portfolio
+baseurl: ""
+url: ""
+markdown: kramdown
+plugins:
+  - jekyll-postcss
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - README.md
+
+collections:
+  projects:
+    output: true
+    permalink: /projet/:slug/
+
+permalink: pretty

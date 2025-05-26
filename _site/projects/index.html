@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de développeur full stack - Création d'applications web innovantes">
+    <meta name="keywords" content="développeur, full stack, web, portfolio, javascript, php, symfony">
+    <meta name="author" content="Votre Nom">
+
+    <title>Projets - Portfolio Développeur - Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#fe7f2d',
+                        accent: '#00b894',
+                        secondary: '#7c9c95',
+                        dark: '#2d3436',
+                    },
+                    height: {
+                        'screen-90': '90vh',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            .nav-link {
+                @apply text-primary relative hover:text-accent transition-colors duration-300;
+            }
+
+            .nav-link::after {
+                content: '';
+                @apply absolute left-0 bottom-[-5px] w-0 h-0.5 bg-accent transition-all duration-300;
+            }
+
+            .nav-link:hover::after {
+                @apply w-full;
+            }
+
+            .tech-card {
+                @apply bg-white p-6 rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100;
+            }
+
+            .project-card {
+                @apply bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100;
+            }
+
+            .tech-badge {
+                @apply bg-accent/10 text-accent text-sm px-3 py-1 rounded-full font-medium;
+            }
+
+            .btn-primary {
+                @apply bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5;
+            }
+
+            .btn-secondary {
+                @apply border-2 border-accent text-accent hover:bg-accent hover:text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5;
+            }
+
+            .input-field {
+                @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all duration-300;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+<nav class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <a href="/#home" class="text-primary font-bold text-xl hover:text-accent transition-colors duration-300">Mattéo GARCIA</a>
+            <button class="md:hidden" id="menu-toggle">
+                <i class="fas fa-bars text-primary"></i>
+            </button>
+            <div class="md:hidden">
+                <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-95 z-50 transform translate-x-full transition-transform duration-300">
+                    <div class="flex justify-end p-4">
+                        <button id="close-menu" class="text-white">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                    <div class="flex flex-col items-center space-y-8 mt-16">
+                        <a href="/about" class="text-white text-xl hover:text-accent transition-colors">A propos</a>
+                        <a href="/projects" class="text-white text-xl hover:text-accent transition-colors">Réalisations</a>
+                        <a href="/apprentissages" class="text-white text-xl hover:text-accent transition-colors">Apprentissages</a>
+                        <a href="/#contact" class="text-white text-xl hover:text-accent transition-colors">Contact</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="/about" class="nav-link">A propos</a>
+                <a href="/projects" class="nav-link">Réalisations</a>
+                <a href="/apprentissages" class="nav-link">Apprentissages</a>
+                <a href="/#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <section id="projects" class="min-h-screen py-24 bg-gradient-to-br from-white to-gray-200">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <span class="text-accent font-medium">Portfolio</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Projets importants</h2>
+            <p class="text-gray-600">Une sélection de mes projets les plus pertinents</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            
+            <div class="project-card group" data-aos="fade-up" data-aos-delay="0">
+                <a href="/projet/popsi/" class="block">
+                    <div class="relative overflow-hidden">
+                        <img src="/assets/images/popsi-accueil.png"
+                             class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                             alt="POPSI">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <span class="inline-block bg-accent/80 text-white text-xs px-2 py-1 rounded mb-2">Stage/Alternance</span>
+                                <div class="flex flex-wrap gap-2">
+                                    
+                                    <span class="tech-badge bg-white/20">Symfony</span>
+                                    
+                                    <span class="tech-badge bg-white/20">LDAP</span>
+                                    
+                                    <span class="tech-badge bg-white/20">CAS (SSO)</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">
+                                POPSI
+                            </h3>
+                            <span class="text-sm text-gray-500">Avril 2024-maintenant</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">La DOSI de l’Université d’Avignon a choisi SIHAM comme logiciel de gestion du personnel des Ressources Humaines. L'utilisation de SIHAM demande une communication avec la DOSI pour certains processus informatiques essentiels.
+
+Ces processus, demandant des communications inefficaces, car longues, doivent donc être automatisées et simplifiées afin que les RH soient plus autonomes.
+
+L'objectif de POPSI est d'automatiser ces processus.
+</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="project-card group" data-aos="fade-up" data-aos-delay="100">
+                <a href="/projet/stageo/" class="block">
+                    <div class="relative overflow-hidden">
+                        <img src="/assets/images/stageo-accueil.png"
+                             class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                             alt="Stageo">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <span class="inline-block bg-accent/80 text-white text-xs px-2 py-1 rounded mb-2">Projet BUT</span>
+                                <div class="flex flex-wrap gap-2">
+                                    
+                                    <span class="tech-badge bg-white/20">Symfony</span>
+                                    
+                                    <span class="tech-badge bg-white/20">LDAP</span>
+                                    
+                                    <span class="tech-badge bg-white/20">SCRUM</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">
+                                Stageo
+                            </h3>
+                            <span class="text-sm text-gray-500">Septembre 2023-Fevrier 2024</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Durant le Semestre 3 du BUT Informatique, nous avions pour projets de concevoir un site web capable de gérer les contrats d’alternances et de stage des élèves. 
+</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="project-card group" data-aos="fade-up" data-aos-delay="200">
+                <a href="/projet/concerts/" class="block">
+                    <div class="relative overflow-hidden">
+                        <img src="/assets/images/concerts-accueil.png"
+                             class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                             alt="Concerts">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <span class="inline-block bg-accent/80 text-white text-xs px-2 py-1 rounded mb-2">Projet BUT</span>
+                                <div class="flex flex-wrap gap-2">
+                                    
+                                    <span class="tech-badge bg-white/20">API Plateforme</span>
+                                    
+                                    <span class="tech-badge bg-white/20">Vue.js</span>
+                                    
+                                    <span class="tech-badge bg-white/20">Symfony</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">
+                                Concerts
+                            </h3>
+                            <span class="text-sm text-gray-500">Septembre 2024-Fevrier 2025</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Durant le semestre 5 du BUT 3, nous avons eu l’occasion d’avoir 3 projets d’applications web par groupe de 3. L'objectif était de créer de plusieurs manières différentes une application de participation et réservation de concerts.
+</p>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+
+    </div>
+</section>
+</main>
+<section id="contact" class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Contact</h2>
+        </div>
+
+        <div class="md:col-span-2 flex flex-col md:flex-row gap-6" data-aos="fade-right">
+            <a href="mailto:matteolcsgrc@gmail.com">
+                <div class="bg-accent/5 p-6 rounded-full flex-1 hover:bg-accent/10 transition-colors duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Email</h3>
+                            <a href="mailto:matteolcsgrc@gmail.com" class="text-accent hover:text-primary transition-colors duration-300">matteolcsgrc@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://www.linkedin.com/in/matt%C3%A9o-garcia-5318a4263/" target="_blank">
+                <div class="bg-accent/5 p-6 rounded-full flex-1 hover:bg-accent/10 transition-colors duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-linkedin text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/matt%C3%A9o-garcia-5318a4263/" target="_blank" class="text-accent hover:text-primary transition-colors duration-300">Voir mon profil LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="/assets/cv.pdf" target="_blank">
+                <div class="bg-accent/5 p-6 rounded-full flex-1 hover:bg-accent/10 transition-colors duration-300">
+                    <div class="flex items-start gap-4 ">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-alt text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Mon Cv</h3>
+                            <p class="text-gray-600 mb-2"></p>
+                            <a href="/assets/images/cv.png" target="_blank" class="text-accent hover:text-primary transition-colors duration-300">Ouvrir mon CV</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+</section>
+
+
+<footer class="w-full bg-white shadow-xl z-50">
+        <div>
+
+        <div class="py-6 text-center ">
+            <p class="text-gray-800">
+                2025 GARCIA Mattéo, BUT3.
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('backdrop-blur-md', 'bg-white/80', 'shadow-md');
+        } else {
+            nav.classList.remove('backdrop-blur-md', 'bg-white/80', 'shadow-md');
+        }
+    });
+</script>
+</body>
+</html>

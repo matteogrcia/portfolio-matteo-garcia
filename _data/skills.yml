@@ -1,0 +1,79 @@
+# Langages principaux
+
+- name: PHP
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg
+  url: https://www.php.net
+
+- name: Symfony
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg
+  url: https://symfony.com/
+
+- name: JavaScript
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg
+  url: https://developer.mozilla.org/fr/docs/Web/JavaScript
+
+- name: Vue.js
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg
+  url: https://vuejs.org/
+
+- name: Python
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg
+  url: https://www.python.org
+
+- name: Java
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg
+  url: https://www.java.com/fr/download/help/whatis_java.html
+
+- name: C
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg
+  url: https://www.w3schools.com/c/c_intro.php
+
+# Technologies Web
+
+- name: Tailwind CSS
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg
+  url: https://tailwindcss.com/
+
+- name: Bootstrap CSS
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg
+  url: https://getbootstrap.com/docs/5.3/getting-started/introduction/
+
+- name: Jekyll
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jekyll/jekyll-original.svg
+  url: https://tailwindcss.com/
+
+# Bases de données
+- name: SQL - PLSQL
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg
+  url: https://www.postgresql.org
+
+- name: MongoDB
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg
+  url: https://www.mongodb.com/
+
+- name: Cassandra
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cassandra/cassandra-original.svg
+  url: https://cassandra.apache.org/
+
+# Outils de développement
+- name: JetBrains
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg
+  url: https://www.jetbrains.com/fr-fr/ides/
+
+- name: Android Studio
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg
+  url: https://developer.android.com/studio
+
+- name: GitLab
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg
+  url: https://about.gitlab.com
+
+# DevOps & Infrastructure
+- name: Docker
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg
+  url: https://www.docker.com
+
+- name: Linux
+  image: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/archlinux/archlinux-original.svg
+  url: https://wiki.archlinux.org/title/Arch_Linux
+

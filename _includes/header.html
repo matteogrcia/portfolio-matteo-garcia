@@ -1,0 +1,32 @@
+<nav class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <a href="/#home" class="text-primary font-bold text-xl hover:text-accent transition-colors duration-300">Mattéo GARCIA</a>
+            <button class="md:hidden" id="menu-toggle">
+                <i class="fas fa-bars text-primary"></i>
+            </button>
+            <div class="md:hidden">
+                <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-95 z-50 transform translate-x-full transition-transform duration-300">
+                    <div class="flex justify-end p-4">
+                        <button id="close-menu" class="text-white">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                    <div class="flex flex-col items-center space-y-8 mt-16">
+                        <a href="/about" class="text-white text-xl hover:text-accent transition-colors">A propos</a>
+                        <a href="/projects" class="text-white text-xl hover:text-accent transition-colors">Réalisations</a>
+                        <a href="/apprentissages" class="text-white text-xl hover:text-accent transition-colors">Apprentissages</a>
+                        <a href="/#contact" class="text-white text-xl hover:text-accent transition-colors">Contact</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="/about" class="nav-link">A propos</a>
+                <a href="/projects" class="nav-link">Réalisations</a>
+                <a href="/apprentissages" class="nav-link">Apprentissages</a>
+                <a href="/#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de développeur full stack - Création d'applications web innovantes">
+    <meta name="keywords" content="développeur, full stack, web, portfolio, javascript, php, symfony">
+    <meta name="author" content="Votre Nom">
+
+    <title>Compétences - Portfolio Développeur - Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#fe7f2d',
+                        accent: '#00b894',
+                        secondary: '#7c9c95',
+                        dark: '#2d3436',
+                    },
+                    height: {
+                        'screen-90': '90vh',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            .nav-link {
+                @apply text-primary relative hover:text-accent transition-colors duration-300;
+            }
+
+            .nav-link::after {
+                content: '';
+                @apply absolute left-0 bottom-[-5px] w-0 h-0.5 bg-accent transition-all duration-300;
+            }
+
+            .nav-link:hover::after {
+                @apply w-full;
+            }
+
+            .tech-card {
+                @apply bg-white p-6 rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100;
+            }
+
+            .project-card {
+                @apply bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100;
+            }
+
+            .tech-badge {
+                @apply bg-accent/10 text-accent text-sm px-3 py-1 rounded-full font-medium;
+            }
+
+            .btn-primary {
+                @apply bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5;
+            }
+
+            .btn-secondary {
+                @apply border-2 border-accent text-accent hover:bg-accent hover:text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5;
+            }
+
+            .input-field {
+                @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all duration-300;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+<nav class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <a href="/#home" class="text-primary font-bold text-xl hover:text-accent transition-colors duration-300">Mattéo GARCIA</a>
+            <button class="md:hidden" id="menu-toggle">
+                <i class="fas fa-bars text-primary"></i>
+            </button>
+            <div class="md:hidden">
+                <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-95 z-50 transform translate-x-full transition-transform duration-300">
+                    <div class="flex justify-end p-4">
+                        <button id="close-menu" class="text-white">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                    <div class="flex flex-col items-center space-y-8 mt-16">
+                        <a href="/about" class="text-white text-xl hover:text-accent transition-colors">A propos</a>
+                        <a href="/projects" class="text-white text-xl hover:text-accent transition-colors">Réalisations</a>
+                        <a href="/apprentissages" class="text-white text-xl hover:text-accent transition-colors">Apprentissages</a>
+                        <a href="/#contact" class="text-white text-xl hover:text-accent transition-colors">Contact</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="/about" class="nav-link">A propos</a>
+                <a href="/projects" class="nav-link">Réalisations</a>
+                <a href="/apprentissages" class="nav-link">Apprentissages</a>
+                <a href="/#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <section class="py-24 bg-gradient-to-br from-white to-blue-50">
+    <div class="container mx-auto px-4">
+        <!-- En-tête de la page -->
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h3 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Apprentissages critiques</h3>
+            <h3 class="text-xl md:text-xl font-bold text-accent mt-2 mb-4">Bilan des apprentissages réalisés au semestre 5</h3>
+            <p class="text-gray-600"><span class="font-bold">Diplôme préparé : </span> BUT Informatique</p>
+            <p class="text-gray-600"><span class="font-bold">Établissement :</span>IUT de Montpellier-Sète</p>
+            <p class="text-gray-600"><span class="font-bold">Formation alternance :</span> à partir du 01/09/2024</p>
+
+
+        </div>
+
+        <!-- Compétences Section 1 -->
+        <div class="mb-20" data-aos="fade-up">
+            <div class="bg-accent/5 p-6 rounded-lg mb-8 flex items-center">
+                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                    <i class="fas fa-code text-accent text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-primary">Réaliser un développement d'application</h3>
+                    <h2 class="text-xl font-bold text-gray-600">Développer — c’est-à-dire concevoir, coder, tester et intégrer — une solution informatique pour un client.</h2>
+                </div>
+            </div>
+
+            <!-- Compétence AC31.01 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3">
+                        <div class="bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-primary">AC1 | Choisir et implémenter les architectures adaptées</h4>
+                            <div class="mt-4 space-y-2">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE1.01 | en respectant les besoins décrits par le client</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE1.03 | En appliquant les principes algorithmiques</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE1.06 | En choisissant les ressources techniques appropriées </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="flex justify-between items-start">
+                            <h5 class="font-semibold text-lg text-primary mb-3">Situation concrète</h5>
+                            <div class="flex space-x-2">
+                                <a href="/projet/popsi/" class="inline-flex items-center px-3 py-1 bg-accent/10 text-accent text-sm rounded-lg hover:bg-accent/20 transition-colors">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Durant le semestre 4, pour j’ai eu comme mission en entreprise le projet <span class="text-accent">POPSI</span>, un projet PHP/Symfony qui utilise donc la structure MVC pour la partie algorithmie (back-end) mais aussi pour la partie visuelle (front-end) afin de rendre le projet léger et lisible. Le projet <span class="text-accent">POPSI</span>, implémente des fonctions usuelles du service RH comme demandé par ceux-ci en respectant leurs exigences et contraintes politiques et judiciaires.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compétence AC31.02 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3">
+                        <div class="bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-primary">AC2 | Faire évoluer une application existante</h4>
+                            <div class="mt-4 space-y-2">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE1.04 | en veillant à la qualité du code et à sa documentation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="flex justify-between items-start">
+                            <h5 class="font-semibold text-lg text-primary mb-3">Situation concrète</h5>
+                            <div class="flex space-x-2">
+                                <a href="/projet/popsi/" class="inline-flex items-center px-3 py-1 bg-accent/10 text-accent text-sm rounded-lg hover:bg-accent/20 transition-colors">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Le projet de <span class="text-accent">POPSI</span> repris en alternance durant le semestre 5 a dû évoluer : le projet implémentait au départ quelques processus RH usuels complexes, aujourd’hui, l’application est capable d’accompagner le logiciel SIHAM dans des processus techniques de gestion du CIR. L’application est maintenant importante et utilisée quotidiennement en production, donc il convient de faire une documentation détaillée pour l’utilisation mais aussi pour le développement pour que le projet puisse être repris par la suite.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compétence AC31.03 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3">
+                        <div class="bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-primary">AC3 | Intégrer des solutions dans un environnement de production</h4>
+                            <div class="mt-4 space-y-2">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE1.01 | En respectant les besoins décrits par le client</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="flex justify-between items-start">
+                            <h5 class="font-semibold text-lg text-primary mb-3">Situation concrète</h5>
+                        </div>
+                        <p class="text-gray-600">
+                            Durant mon alternance, il m’a été confié d’intégrer au système d’information, la nouvelle application de gestion des entretiens professionnels du personnel de l’université. Cette application, EMC2, est développé par l’université de Caen et est une application PHP/Laminas. Cette application a été intégrée, mise à jour, suivie et personnalisée par moi-même dans un environnement de TEST via un serveur Apache et des VHOST, puis dans un environnement de PRODUCTION pour être opérationnel pour la campagne de cette année. Cette application est étroitement en lien avec SIHAM, le SI RH de l’université car traite les données du personnel. Un groupe de travail a donc été crée par moi-même pour comprendre les besoins et les adapter aux contraintes techniques des données traitées. Pour cause de confidentialité je ne peux pas fournir de traces de cette application.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compétences Section 2 -->
+        <div class="mb-20" data-aos="fade-up">
+            <div class="bg-accent/5 p-6 rounded-lg mb-8 flex items-center">
+                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                    <i class="fas fa-rocket text-accent text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-primary">Optimiser des applications</h3>
+                    <h2 class="text-xl font-bold text-gray-600">Proposer des applications informatiques optimisées en fonction de critères spécifiques : temps d’exécution, précision, consommation de ressources.</h2>
+                </div>            
+            </div>
+
+            <!-- Compétence AC32.01 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3">
+                        <div class="bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-primary">AC1 | Anticiper les résultats de diverses métriques</h4>
+                            <div class="mt-4 space-y-2">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE2.01 | en formalisant et modélisant des situations complexes</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE2.02 | en recensant les algorithmes et les structures de données usuels</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE2.04 | En justifiant les choix et validant les résultats</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="flex justify-between items-start">
+                            <h5 class="font-semibold text-lg text-primary mb-3">Situation concrète</h5>
+                            <div class="flex space-x-2">
+                                <a href="/projet/popsi/" class="inline-flex items-center px-3 py-1 bg-accent/10 text-accent text-sm rounded-lg hover:bg-accent/20 transition-colors">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Concernant le projet <span class="text-accent">POPSI</span>, celui-ci traite un grand nombre de <span class="text-accent">données</span> RH, ce qui rend chaque requête et l’exécution de chaque script long. Il a donc été convenu de créer des tables intermédiaires dans la base de données de <span class="text-accent">POPSI</span>, qui sont mises à jour chaque jour, et qui sont liés aux données du logiciel de gestion du personnel SIHAM via des vues.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compétence AC32.03 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3">
+                        <div class="bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-primary">AC3 | Choisir et utiliser des bibliothèques et méthodes dédiées au domaine d'application</h4>
+                            <div class="mt-4 space-y-2">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE2.03 | en s'appuyant sur des schémas de raisonnement</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE2.02 | en recensant les algorithmes et les structures de données usuels </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="flex justify-between items-start">
+                            <h5 class="font-semibold text-lg text-primary mb-3">Situation concrète</h5>
+                            <div class="flex space-x-2">
+                                <a href="/projet/popsi/" class="inline-flex items-center px-3 py-1 bg-accent/10 text-accent text-sm rounded-lg hover:bg-accent/20 transition-colors">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            POPSI, pour être intégrée au système d’information de l’université a dû être relié au CAS. Le CAS est le protocole de connexion à toutes les applications mise en place par Avignon Université.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compétences Section 3 -->
+        <div class="mb-20" data-aos="fade-up">
+            <div class="bg-accent/5 p-6 rounded-lg mb-8 flex items-center">
+                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                    <i class="fas fa-network-wired text-accent text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-primary">Collaborer au sein d’une équipe informatique</h3>
+                    <h2 class="text-xl font-bold text-gray-600">Acquérir, développer et exploiter les aptitudes nécessaires pour travailler efficacement dans une équipe informatique.</h2>
+                </div>            
+            </div>
+
+            <!-- Compétence AC36.01 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3">
+                        <div class="bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-primary">AC1 | Organiser et partager une veille technologique et informationnelle</h4>
+                            <h4 class="font-semibold text-primary">AC2 | Identifier les enjeux de l’économie de l’innovation numérique</h4>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h5 class="font-semibold text-lg text-primary mb-3">Situation concrète</h5>
+                        <p class="text-gray-600">
+                            Durant le semestre 5, une veille informationnelle nous a été demandé sur plusieurs thèmes, par groupes de 3, nous avons choisi : Le cloud et son impact sur l’environnement, ainsi que l’inflation. Ces thèmes ont été le sujet de beaucoup de recherches tout au long du semestres, et un oral nous a été demandé présentant un article récent. Le sujet de l’IA a particulièrement raisonné avec notre formation et nous avons pu aborder les enjeux de cette technologie.
+                        </p>
+                        <img src="/assets/images/veille1.png" alt="Image fonctionnalité"
+                             class="object-cover rounded-md"
+                             style="height: calc(500px * 9 / 16); margin-top: 20px; margin-bottom: 20px" />
+                        <img src="/assets/images/veille2.png" alt="Image fonctionnalité"
+                             class="object-cover rounded-md"
+                             style="height: calc(500px * 9 / 16);" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compétence AC36.02 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg mb-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3">
+                        <div class="bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-primary">AC3 | Guider la conduite du changement informatique au sein d’une organisation</h4>
+                            <h4 class="font-semibold text-primary">AC4 | Accompagner le management de projet informatique </h4>
+
+                            <div class="mt-4 space-y-2">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE6.01 | En inscrivant sa démarche au sein d’une équipe pluridisciplinaire</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE6.02 | En accompagnant la mise en œuvre des évolutions informatiques</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE6.03 | en veillant au respect des contraintes juridiques</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                    <span class="text-gray-600 text-sm">CE6.04 | En développant une communication efficace et collaborative </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="flex justify-between items-start">
+                            <h5 class="font-semibold text-lg text-primary mb-3">Situation concrète</h5>
+                        </div>
+                        <p class="text-gray-600">
+                            Comme dit précédemment, je suis responsable de la mise en place de la nouvelle application des entretiens professionnels à l’université d’Avignon. Cette intégration implique de nombreux changements, car l’ancienne application était développée par l’université et était donc très personnalisée mais compliquée à mettre à jour. La décision de la changer permet donc de rendre la maintenabilité beaucoup plus simple mais l’application est beaucoup moins personnalisée aux besoins de l’organisation, ce qui a été le sujet de beaucoup de réunion avec le personnel RH pour leur faire comprendre l’importance du changement. Ces réunions ont été organisée par moi-même afin de conduire ce projet de la meilleure des manière, en impliquant au maximum le personnel RH pour les responsabiliser vis à vis de cette application qui est la leur. Pour cause de confidentialité je ne peux pas fournir de traces de cette application.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</main>
+<section id="contact" class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Contact</h2>
+        </div>
+
+        <div class="md:col-span-2 flex flex-col md:flex-row gap-6" data-aos="fade-right">
+            <a href="mailto:matteolcsgrc@gmail.com">
+                <div class="bg-accent/5 p-6 rounded-full flex-1 hover:bg-accent/10 transition-colors duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Email</h3>
+                            <a href="mailto:matteolcsgrc@gmail.com" class="text-accent hover:text-primary transition-colors duration-300">matteolcsgrc@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://www.linkedin.com/in/matt%C3%A9o-garcia-5318a4263/" target="_blank">
+                <div class="bg-accent/5 p-6 rounded-full flex-1 hover:bg-accent/10 transition-colors duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-linkedin text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/matt%C3%A9o-garcia-5318a4263/" target="_blank" class="text-accent hover:text-primary transition-colors duration-300">Voir mon profil LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="/assets/cv.pdf" target="_blank">
+                <div class="bg-accent/5 p-6 rounded-full flex-1 hover:bg-accent/10 transition-colors duration-300">
+                    <div class="flex items-start gap-4 ">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-alt text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Mon Cv</h3>
+                            <p class="text-gray-600 mb-2"></p>
+                            <a href="/assets/images/cv.png" target="_blank" class="text-accent hover:text-primary transition-colors duration-300">Ouvrir mon CV</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+</section>
+
+
+<footer class="w-full bg-white shadow-xl z-50">
+        <div>
+
+        <div class="py-6 text-center ">
+            <p class="text-gray-800">
+                2025 GARCIA Mattéo, BUT3.
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('backdrop-blur-md', 'bg-white/80', 'shadow-md');
+        } else {
+            nav.classList.remove('backdrop-blur-md', 'bg-white/80', 'shadow-md');
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-white to-grey-50 pt-20">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" class="space-y-8">
+                <div class="inline-block">
+                </div>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-primary leading-tight" >
+                    Portfolio
+                </h1>
+
+
+                <div class="container mx-auto px-4 h-[120px] overflow-hidden">
+                    <div class="relative h-full flex items-center justify-center" data-aos="fade-up">
+                        <div id="auto-scroll" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide tools-wrapper h-full w-full">
+                            {% for title in site.data.titles %}
+                            <h2 class="min-w-full flex-shrink-0 text-4xl md:text-6xl text-gray-600 font-bold leading-tight snap-start text-center flex items-left justify-left h-full">
+                                {{ title.determinant }} <span class="text-accent ml-2">{{ title.name }}</span>
+                            </h2>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Vous retrouverez ici l’ensemble de mes réalisations importantes et de mes compétences acquises durant mon parcours en <span class="text-primary">informatique</span> !
+                </p>
+                <div class="flex gap-4">
+                    <a href="#contact" class="btn-secondary">Me contacter</a>
+                </div>
+                <div class="flex items-center gap-4 text-sm text-gray-500">
+                    <span class="flex items-center gap-2">
+                        <i class="fas fa-graduation-cap text-accent"></i>
+                        BUT Informatique
+                    </span>
+                </div>
+            </div>
+            <div data-aos="fade-left" class="relative flex flex-col items-center justify-center min-h-screen px-4">
+
+                <div class="container mx-auto px-4">
+                    <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                        <span class="text-accent font-medium">Mes compétences</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Technologies & Outils</h2>
+                        <p class="text-gray-600">Découvrez les technologies et outils que j'utilise quotidiennement</p>
+                    </div>
+
+                    <div class="relative" data-aos="fade-up">
+                        <div id="auto-scroll-skills" class="flex flex-col overflow-y-auto items-center gap-4 max-h-[600px] mb-5">
+                            {% for skill in site.data.skills %}
+                            <div class="w-full max-w-[200px]">
+                                <div class="tech-card group p-6 rounded-xl shadow-md">
+                                    <div class="text-center">
+                                        <a href="{{ skill.url }}" target="_blank" rel="noopener noreferrer"
+                                           class="block w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                            <img src="{{ skill.image }}" alt="{{ skill.name }}" class="w-full h-full object-contain">
+                                        </a>
+                                        <h3 class="font-semibold text-base mb-1">{{ skill.name }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    // Défilement horizontal automatique (slide toutes les 3 secondes)
+    const container = document.getElementById('auto-scroll');
+    let scrollAmount = 0;
+    const scrollStep = container.offsetWidth;
+    const delay = 3000; // temps entre chaque slide (ms)
+
+    setInterval(() => {
+        if (scrollAmount >= container.scrollWidth - scrollStep) {
+            scrollAmount = 0;
+        } else {
+            scrollAmount += scrollStep;
+        }
+        container.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }, delay);
+
+    // Défilement vertical lent et continu
+    const scrollContainer = document.getElementById('auto-scroll-skills');
+    let scrollSpeed = 1; // pixels per frame
+    let isResetting = false; // flag pour éviter les conflits
+
+    function autoScroll() {
+        if (isResetting) {
+            requestAnimationFrame(autoScroll);
+            return;
+        }
+
+        if (scrollContainer.scrollTop + scrollContainer.clientHeight >= scrollContainer.scrollHeight) {
+            isResetting = true;
+            scrollContainer.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            setTimeout(() => {
+                isResetting = false;
+                requestAnimationFrame(autoScroll);
+            }, 800);
+        } else {
+            scrollContainer.scrollTop += scrollSpeed;
+            requestAnimationFrame(autoScroll);
+        }
+    }
+
+    requestAnimationFrame(autoScroll);
+</script>
+

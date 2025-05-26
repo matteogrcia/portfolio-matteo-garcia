@@ -1,0 +1,7 @@
+- name: parcours
+  determinant: Mon
+- name: réalisations
+  determinant: Mes
+- name: compétences
+  determinant: Mes
+

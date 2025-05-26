@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<section id="projects" class="min-h-screen py-24 bg-gradient-to-br from-white to-gray-200">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <span class="text-accent font-medium">Portfolio</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Projets importants</h2>
+            <p class="text-gray-600">Une sélection de mes projets les plus pertinents</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {% for project in site.data.projects %}
+            <div class="project-card group" data-aos="fade-up" data-aos-delay="{{ forloop.index | minus: 1 | times: 100 }}">
+                <a href="{{ site.baseurl }}/projet/{{ project.slug }}/" class="block">
+                    <div class="relative overflow-hidden">
+                        <img src="{{ project.image }}"
+                             class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                             alt="{{ project.title }}">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <span class="inline-block bg-accent/80 text-white text-xs px-2 py-1 rounded mb-2">{{ project.type }}</span>
+                                <div class="flex flex-wrap gap-2">
+                                    {% for tech in project.technologies %}
+                                    <span class="tech-badge bg-white/20">{{ tech }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-primary group-hover:text-accent transition-colors">
+                                {{ project.title }}
+                            </h3>
+                            <span class="text-sm text-gray-500">{{ project.period }}</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">{{ project.description }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>

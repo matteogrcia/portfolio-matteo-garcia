@@ -1,0 +1,133 @@
+---
+layout: default
+---
+{% assign project = site.data.projects | where: "slug", page.slug | first %}
+
+<section class="py-24 bg-gradient-to-br from-white to-gray-200">
+    <div class="container mx-auto px-4 max-w-7xl">
+        <!-- Bouton retour avec effet hover amélioré -->
+        <a href="/projects" class="group inline-flex items-center text-accent hover:text-accent/80 mb-8 transition-all duration-300 hover:-translate-x-1">
+            <i class="fas fa-arrow-left mr-2 transition-transform group-hover:scale-125"></i>
+            <span class="font-medium">Retour aux projets</span>
+        </a>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Image du projet avec effet d'ombre amélioré -->
+            <div class="relative group" data-aos="fade-right">
+                <img src="{{ project.image }}"
+                     alt="{{ project.title }}"
+                     class="relative w-full h-[450px] object-cover rounded-xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
+
+                <!-- Technologies avec style amélioré -->
+                <div class="mt-8 flex flex-wrap gap-3">
+                    {% for tech in project.technologies %}
+                    <span class="tech-badge bg-white shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Détails du projet -->
+            <div class="space-y-8" data-aos="fade-left">
+                <div class="space-y-4">
+                    <!-- Type et Titre -->
+                    <div class="space-y-3">
+                        <span class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full">
+                            {{ project.type }}
+                        </span>
+                        <h1 class="text-4xl md:text-5xl font-bold text-primary">
+                            {{ project.title }}
+                        </h1>
+                    </div>
+
+                    <!-- Période avec style amélioré -->
+                    <div class="flex items-center text-gray-600 px-4 py-2 rounded-lg inline-block">
+                        <i class="far fa-calendar-alt text-accent mr-2"></i>
+                        <span class="font-medium">{{ project.period }}</span>
+                    </div>
+
+                    <!-- Description avec meilleure lisibilité -->
+                    <div class="mt-8 prose prose-lg prose-gray max-w-none">
+                        {{ project.description | markdownify }}
+                    </div>
+                </div>
+
+                <!-- Liens avec effets hover améliorés -->
+                <div class="flex gap-4 pt-6 justify-end">
+                    {% if project.lien %}
+                    <a href="{{ project.lien }}" target="_blank" class="btn-primary transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        Voir le projet
+                    </a>
+                    {% endif %}
+                    {% if project.github %}
+                    <a href="{{ project.github }}" target="_blank" class="btn-secondary transform hover:scale-105 transition-all duration-300">
+                        <i class="fab fa-github mr-2"></i>
+                        Voir le code
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Sections détaillées avec style amélioré -->
+        <div class="mt-24 grid md:grid-row-2 gap-12">
+            <!-- Colonne gauche -->
+            <div class="space-y-12">
+                <!-- Contexte -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                        <i class="fas fa-info-circle text-accent mr-3"></i>
+                        Contexte du projet
+                    </h2>
+                    <div class="prose prose-lg text-gray-600">
+                        <div class="space-y-4">
+                            {% assign context_parts = project.context | newline_to_br | split: '<br />' %}
+                            {% for part in context_parts %}
+                            {% assign trimmed_part = part | strip %}
+                            {% if trimmed_part != "" %}
+                            {% if trimmed_part contains "Problématiques initiales :" or trimmed_part contains "Contraintes :" %}
+                            <h3 class="text-xl font-semibold text-primary mt-6">{{ trimmed_part }}</h3>
+                            {% elsif trimmed_part contains "- " %}
+                            <div class="flex items-start ml-4 mb-2">
+                                <i class="fas fa-angle-right text-accent mt-1.5 mr-3"></i>
+                                <span>{{ trimmed_part | remove: "- " }}</span>
+                            </div>
+                            {% else %}
+                            <p class="leading-relaxed">{{ trimmed_part }}</p>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fonctionnalités -->
+                {% if project.features %}
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                        <i class="fas fa-list-check text-accent mr-3"></i>
+                        Fonctionnalités principales
+                    </h2>
+                    <ul class="space-y-8">
+                        {% for feature in project.features %}
+                        <li class="flex flex-col items-center text-center group space-y-4">
+                            {% if feature.image %}
+                            <img src="{{ feature.image }}" alt="Image fonctionnalité"
+                                 class="object-cover rounded-md"
+                                 style="height: calc(500px * 9 / 16);" />
+                            {% endif %}
+                            <div class="w-full">
+                                <p class="text-gray-600 text-justify">{{ feature.description }}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+
+            </div>
+        {{ content }}
+        </div>
+    </div>
+</section>

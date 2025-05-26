@@ -1,0 +1,31 @@
+<section id="skills" class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <span class="text-accent font-medium">Mes compétences</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Technologies & Outils</h2>
+            <p class="text-gray-600">Découvrez les technologies et outils que j'utilise quotidiennement</p>
+        </div>
+
+        <div class="relative" data-aos="fade-up">
+            <div class="flex overflow-x-auto gap-6 snap-x snap-mandatory scrollbar-hide tools-wrapper mb-5">
+                {% for skill in site.data.skills %}
+                <div class="flex-none w-60 snap-start mb-3">
+                    <div class="tech-card group h-full">
+                        <div class="text-center">
+                            <a href="{{ skill.url }}" target="_blank" rel="noopener noreferrer"
+                               class="block w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                <img src="{{ skill.image }}" alt="{{ skill.name }}" class="w-full h-full object-contain">
+                            </a>
+                            <h3 class="font-semibold text-lg mb-2">{{ skill.name }}</h3>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-center text-sm text-gray-500 flex items-center justify-center gap-2">
+                <i class="fas fa-arrows-left-right"></i>
+                <span>Faites défiler pour voir plus</span>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de développeur full stack - Création d'applications web innovantes">
+    <meta name="keywords" content="développeur, full stack, web, portfolio, javascript, php, symfony">
+    <meta name="author" content="Votre Nom">
+
+    <title>Site et Application Mobile pour LABAF - Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#fe7f2d',
+                        accent: '#00b894',
+                        secondary: '#7c9c95',
+                        dark: '#2d3436',
+                    },
+                    height: {
+                        'screen-90': '90vh',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            .nav-link {
+                @apply text-primary relative hover:text-accent transition-colors duration-300;
+            }
+
+            .nav-link::after {
+                content: '';
+                @apply absolute left-0 bottom-[-5px] w-0 h-0.5 bg-accent transition-all duration-300;
+            }
+
+            .nav-link:hover::after {
+                @apply w-full;
+            }
+
+            .tech-card {
+                @apply bg-white p-6 rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100;
+            }
+
+            .project-card {
+                @apply bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100;
+            }
+
+            .tech-badge {
+                @apply bg-accent/10 text-accent text-sm px-3 py-1 rounded-full font-medium;
+            }
+
+            .btn-primary {
+                @apply bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5;
+            }
+
+            .btn-secondary {
+                @apply border-2 border-accent text-accent hover:bg-accent hover:text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5;
+            }
+
+            .input-field {
+                @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all duration-300;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+<nav class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <a href="/#home" class="text-primary font-bold text-xl hover:text-accent transition-colors duration-300">Mattéo GARCIA</a>
+            <button class="md:hidden" id="menu-toggle">
+                <i class="fas fa-bars text-primary"></i>
+            </button>
+            <div class="md:hidden">
+                <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-95 z-50 transform translate-x-full transition-transform duration-300">
+                    <div class="flex justify-end p-4">
+                        <button id="close-menu" class="text-white">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                    <div class="flex flex-col items-center space-y-8 mt-16">
+                        <a href="/about" class="text-white text-xl hover:text-accent transition-colors">A propos</a>
+                        <a href="/projects" class="text-white text-xl hover:text-accent transition-colors">Réalisations</a>
+                        <a href="/apprentissages" class="text-white text-xl hover:text-accent transition-colors">Apprentissages</a>
+                        <a href="/#contact" class="text-white text-xl hover:text-accent transition-colors">Contact</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="/about" class="nav-link">A propos</a>
+                <a href="/projects" class="nav-link">Réalisations</a>
+                <a href="/apprentissages" class="nav-link">Apprentissages</a>
+                <a href="/#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+    
+
+<section class="py-24 bg-gradient-to-br from-white to-gray-200">
+    <div class="container mx-auto px-4 max-w-7xl">
+        <!-- Bouton retour avec effet hover amélioré -->
+        <a href="/projects" class="group inline-flex items-center text-accent hover:text-accent/80 mb-8 transition-all duration-300 hover:-translate-x-1">
+            <i class="fas fa-arrow-left mr-2 transition-transform group-hover:scale-125"></i>
+            <span class="font-medium">Retour aux projets</span>
+        </a>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Image du projet avec effet d'ombre amélioré -->
+            <div class="relative group" data-aos="fade-right">
+                <img src="/assets/images/popsi-accueil.png"
+                     alt="POPSI"
+                     class="relative w-full h-[450px] object-cover rounded-xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
+
+                <!-- Technologies avec style amélioré -->
+                <div class="mt-8 flex flex-wrap gap-3">
+                    
+                    <span class="tech-badge bg-white shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">Symfony</span>
+                    
+                    <span class="tech-badge bg-white shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">LDAP</span>
+                    
+                    <span class="tech-badge bg-white shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">CAS (SSO)</span>
+                    
+                </div>
+            </div>
+
+            <!-- Détails du projet -->
+            <div class="space-y-8" data-aos="fade-left">
+                <div class="space-y-4">
+                    <!-- Type et Titre -->
+                    <div class="space-y-3">
+                        <span class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full">
+                            Stage/Alternance
+                        </span>
+                        <h1 class="text-4xl md:text-5xl font-bold text-primary">
+                            POPSI
+                        </h1>
+                    </div>
+
+                    <!-- Période avec style amélioré -->
+                    <div class="flex items-center text-gray-600 px-4 py-2 rounded-lg inline-block">
+                        <i class="far fa-calendar-alt text-accent mr-2"></i>
+                        <span class="font-medium">Avril 2024-maintenant</span>
+                    </div>
+
+                    <!-- Description avec meilleure lisibilité -->
+                    <div class="mt-8 prose prose-lg prose-gray max-w-none">
+                        <p>La DOSI de l’Université d’Avignon a choisi SIHAM comme logiciel de gestion du personnel des Ressources Humaines. L’utilisation de SIHAM demande une communication avec la DOSI pour certains processus informatiques essentiels.</p>
+
+<p>Ces processus, demandant des communications inefficaces, car longues, doivent donc être automatisées et simplifiées afin que les RH soient plus autonomes.</p>
+
+<p>L’objectif de POPSI est d’automatiser ces processus.</p>
+
+                    </div>
+                </div>
+
+                <!-- Liens avec effets hover améliorés -->
+                <div class="flex gap-4 pt-6 justify-end">
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Sections détaillées avec style amélioré -->
+        <div class="mt-24 grid md:grid-row-2 gap-12">
+            <!-- Colonne gauche -->
+            <div class="space-y-12">
+                <!-- Contexte -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                        <i class="fas fa-info-circle text-accent mr-3"></i>
+                        Contexte du projet
+                    </h2>
+                    <div class="prose prose-lg text-gray-600">
+                        <div class="space-y-4">
+                            
+                            
+                            
+                            
+                            
+                            <p class="leading-relaxed">Durant le semestre 4 du BUT Informatique j’ai eu l’occasion d’avoir un stage de 10 semaines au service de la DOSI (Direction Opérationnelle des Systèmes d’Information) de l’Université d’Avignon.</p>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            <p class="leading-relaxed">En effet, la DOSI de l’Université d’Avignon a choisi SIHAM comme logiciel de gestion du personnel des Ressources Humaines. La directrice adjointe des ressources humaines, durant l’utilisation, a régulièrement besoin de la DOSI pour effectuer des dépôts de fichiers ou autres procédures simples sur SIHAM.</p>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            <p class="leading-relaxed">Ces procédures simples, demandant des communications inefficaces, car longues, doivent donc être automatisées et simplifiées afin que les RH soient plus autonomes.</p>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            <p class="leading-relaxed">Il convient donc de créer une application web interne à l’Université d’Avignon, disponible à la DOSI et la RH, qui peut s’étendre à d’autres services. Celle-ci a pour objectif donc de simplifier aux fonctionnels des procédures simples et les rendre autonomes, sur une interface simple afin de limiter les échanges avec la DOSI.</p>
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fonctionnalités -->
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300" data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                        <i class="fas fa-list-check text-accent mr-3"></i>
+                        Fonctionnalités principales
+                    </h2>
+                    <ul class="space-y-8">
+                        
+                        <li class="flex flex-col items-center text-center group space-y-4">
+                            
+                            <img src="/assets/images/popsi-accueil.png" alt="Image fonctionnalité"
+                                 class="object-cover rounded-md"
+                                 style="height: calc(500px * 9 / 16);" />
+                            
+                            <div class="w-full">
+                                <p class="text-gray-600 text-justify">POPSI (Plateforme d’Optimisation des Processus des Systèmes d’Information) est donc une application utilisant le framework Symfony donc utilisant le modèle MVC. POPSI est en lien étroit avec l’application SIHAM car est capable de modifier, copier, des fichiers ou encore de faire des requêtes SQL vers sa base de données pour les différents processus métiers.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex flex-col items-center text-center group space-y-4">
+                            
+                            <img src="/assets/images/popsi-param.png" alt="Image fonctionnalité"
+                                 class="object-cover rounded-md"
+                                 style="height: calc(500px * 9 / 16);" />
+                            
+                            <div class="w-full">
+                                <p class="text-gray-600 text-justify">Plusieurs fonctionnalités d’administration sont présentes, comme le switch user qui permet d’usurper l’identité d’une personne le temps d’une connexion pour tester sa vision du site web. L’application permet aussi de changer les “paramètres”.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex flex-col items-center text-center group space-y-4">
+                            
+                            <img src="/assets/images/popsi-cas.png" alt="Image fonctionnalité"
+                                 class="object-cover rounded-md"
+                                 style="height: calc(500px * 9 / 16);" />
+                            
+                            <div class="w-full">
+                                <p class="text-gray-600 text-justify">En effet, POPSI est présent sur 3 environnements différents : PROD, PREPROD, TEST. Il existe donc 3 versions de POPSI capable de communiquer avec 3 versions de SIHAM. Chaque version de SIHAM a des paramètres qui lui sont propres et POPSI est capable de les modifier.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex flex-col items-center text-center group space-y-4">
+                            
+                            <img src="/assets/images/popsi-cir.png" alt="Image fonctionnalité"
+                                 class="object-cover rounded-md"
+                                 style="height: calc(500px * 9 / 16);" />
+                            
+                            <div class="w-full">
+                                <p class="text-gray-600 text-justify">POPSI, pour être intégrée au système d’information de l’université a dû être relié au CAS. Le CAS est le protocole de connexion à toutes les applications mise en place par Avignon Université. Cette application dont je suis maintenant totalement responsable en alternance à l’université me permet d’aborder la communication entre les différents logiciels d’un système d’information mais aussi de comprendre le lien avec les clients. Ici, les clients sont les RH et la DOSI qui ont eu besoin de cette application pour simplifier leur travail respectif. L’aspect métier et politique est aussi important, car l’application est lié au SI RH de l’université (SIHAM) donc a accès à des données complexes de gestion du personnel et peut automatiser des processus comme la gestion du CIR.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex flex-col items-center text-center group space-y-4">
+                            
+                            <div class="w-full">
+                                <p class="text-gray-600 text-justify">J’ai pu conduire des réunions, assumer la responsabilité de cette application pour que ce projet avance de la meilleure manière, et pour qu’il continue d’avancer en fonction des besoins de l’université aujourd’hui.</p>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                
+
+
+            </div>
+        
+
+        </div>
+    </div>
+</section>
+</main>
+<section id="contact" class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Contact</h2>
+        </div>
+
+        <div class="md:col-span-2 flex flex-col md:flex-row gap-6" data-aos="fade-right">
+            <a href="mailto:matteolcsgrc@gmail.com">
+                <div class="bg-accent/5 p-6 rounded-full flex-1 hover:bg-accent/10 transition-colors duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Email</h3>
+                            <a href="mailto:matteolcsgrc@gmail.com" class="text-accent hover:text-primary transition-colors duration-300">matteolcsgrc@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://www.linkedin.com/in/matt%C3%A9o-garcia-5318a4263/" target="_blank">
+                <div class="bg-accent/5 p-6 rounded-full flex-1 hover:bg-accent/10 transition-colors duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-linkedin text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/matt%C3%A9o-garcia-5318a4263/" target="_blank" class="text-accent hover:text-primary transition-colors duration-300">Voir mon profil LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="/assets/cv.pdf" target="_blank">
+                <div class="bg-accent/5 p-6 rounded-full flex-1 hover:bg-accent/10 transition-colors duration-300">
+                    <div class="flex items-start gap-4 ">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-alt text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Mon Cv</h3>
+                            <p class="text-gray-600 mb-2"></p>
+                            <a href="/assets/images/cv.png" target="_blank" class="text-accent hover:text-primary transition-colors duration-300">Ouvrir mon CV</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+</section>
+
+
+<footer class="w-full bg-white shadow-xl z-50">
+        <div>
+
+        <div class="py-6 text-center ">
+            <p class="text-gray-800">
+                2025 GARCIA Mattéo, BUT3.
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('backdrop-blur-md', 'bg-white/80', 'shadow-md');
+        } else {
+            nav.classList.remove('backdrop-blur-md', 'bg-white/80', 'shadow-md');
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+- title: POPSI
+  description: |
+    La DOSI de l’Université d’Avignon a choisi SIHAM comme logiciel de gestion du personnel des Ressources Humaines. L'utilisation de SIHAM demande une communication avec la DOSI pour certains processus informatiques essentiels.
+    
+    Ces processus, demandant des communications inefficaces, car longues, doivent donc être automatisées et simplifiées afin que les RH soient plus autonomes.
+
+    L'objectif de POPSI est d'automatiser ces processus.
+
+  context: |
+    Durant le semestre 4 du BUT Informatique j’ai eu l’occasion d’avoir un stage de 10 semaines au service de la DOSI (Direction Opérationnelle des Systèmes d’Information) de l’Université d’Avignon.
+
+    En effet, la DOSI de l’Université d’Avignon a choisi SIHAM comme logiciel de gestion du personnel des Ressources Humaines. La directrice adjointe des ressources humaines, durant l’utilisation, a régulièrement besoin de la DOSI pour effectuer des dépôts de fichiers ou autres procédures simples sur SIHAM.
+
+    Ces procédures simples, demandant des communications inefficaces, car longues, doivent donc être automatisées et simplifiées afin que les RH soient plus autonomes.
+
+    Il convient donc de créer une application web interne à l’Université d’Avignon, disponible à la DOSI et la RH, qui peut s’étendre à d’autres services. Celle-ci a pour objectif donc de simplifier aux fonctionnels des procédures simples et les rendre autonomes, sur une interface simple afin de limiter les échanges avec la DOSI.
+
+  image: /assets/images/popsi-accueil.png
+  technologies:
+    - Symfony
+    - LDAP
+    - CAS (SSO)
+
+  features:
+    - description: "POPSI (Plateforme d’Optimisation des Processus des Systèmes d’Information) est donc une application utilisant le framework Symfony donc utilisant le modèle MVC. POPSI est en lien étroit avec l’application SIHAM car est capable de modifier, copier, des fichiers ou encore de faire des requêtes SQL vers sa base de données pour les différents processus métiers."
+      image: /assets/images/popsi-accueil.png
+    - description: "Plusieurs fonctionnalités d’administration sont présentes, comme le switch user qui permet d’usurper l’identité d’une personne le temps d’une connexion pour tester sa vision du site web. L’application permet aussi de changer les “paramètres”."
+      image: /assets/images/popsi-param.png
+
+    - description: "En effet, POPSI est présent sur 3 environnements différents : PROD, PREPROD, TEST. Il existe donc 3 versions de POPSI capable de communiquer avec 3 versions de SIHAM. Chaque version de SIHAM a des paramètres qui lui sont propres et POPSI est capable de les modifier."
+      image: /assets/images/popsi-cas.png
+
+    - description: "POPSI, pour être intégrée au système d’information de l’université a dû être relié au CAS. Le CAS est le protocole de connexion à toutes les applications mise en place par Avignon Université. Cette application dont je suis maintenant totalement responsable en alternance à l’université me permet d’aborder la communication entre les différents logiciels d’un système d’information mais aussi de comprendre le lien avec les clients. Ici, les clients sont les RH et la DOSI qui ont eu besoin de cette application pour simplifier leur travail respectif. L’aspect métier et politique est aussi important, car l’application est lié au SI RH de l’université (SIHAM) donc a accès à des données complexes de gestion du personnel et peut automatiser des processus comme la gestion du CIR."
+      image: /assets/images/popsi-cir.png
+
+    - description: "J’ai pu conduire des réunions, assumer la responsabilité de cette application pour que ce projet avance de la meilleure manière, et pour qu’il continue d’avancer en fonction des besoins de l’université aujourd’hui."
+      image: 
+
+  period: "Avril 2024-maintenant"
+  type: "Stage/Alternance"
+  slug: popsi
+
+- title: Stageo
+  description: |
+    Durant le Semestre 3 du BUT Informatique, nous avions pour projets de concevoir un site web capable de gérer les contrats d’alternances et de stage des élèves. 
+
+  context: |
+    Durant le Semestre 3 du BUT Informatique, nous avions pour projets de concevoir un site web capable de gérer les contrats d’alternances et de stage des élèves. 
+
+    Ce site permet, en tant qu’étudiant, de créer sa convention de stage, de la proposer aux enseignants, au secretariat ainsi qu’a l’entreprise. L’entreprise a accès à toutes les informations necéssaires, et le Secretariat ainsi que le Responsable des Stages et Alternances sont capable de visualiser et modifier toutes les informations.
+  image: /assets/images/stageo-accueil.png
+  technologies:
+    - Symfony
+    - LDAP
+    - SCRUM
+
+  features:
+    - description:
+      image: /assets/images/stageo-accueil.png
+    - description: "Grâce à ce projet, j’ai pu développer mes compétences en PHP, SQL, HTML, CSS et JavaScript. J’ai également pu aborder pour la première fois un projets qui demandais plusieurs mois de conceptions, en groupe de 5, ce qui a demandé beaucoup d’apprentissage et d’effort en Gestion. J’ai également pu découvrir des notions d’entité et de modèle MVC (modèle, vues, contrôleurs) ce qui m’a permi d’aborder avec facilité la programmation avec le framework Symfony dans la suite de mon parcours."
+      image: /assets/images/stageo-f1.png
+
+    - description: 
+      image: /assets/images/stageo-f2.png
+
+  period: "Septembre 2023-Fevrier 2024"
+  type: "Projet BUT"
+  slug: stageo
+
+- title: Concerts
+  description: |
+    Durant le semestre 5 du BUT 3, nous avons eu l’occasion d’avoir 3 projets d’applications web par groupe de 3. L'objectif était de créer de plusieurs manières différentes une application de participation et réservation de concerts.
+  context: |
+        Durant le semestre 5 du BUT 3, nous avons eu l’occasion d’avoir 3 projets d’applications web par groupe de 3. L'objectif était de créer de plusieurs manières différentes une application de participation et réservation de concerts.
+
+  image: /assets/images/concerts-accueil.png
+  technologies:
+    - API Plateforme
+    - Vue.js
+    - Symfony
+
+  features:
+    - description: "le premier était un projet d’annuaire donc de création, modification et lecture de profils. Cette application était donc en symfony et utilisait Twig pour le front, c’est-à-dire la partie visible du site."
+      image: 
+    - description: "Le deuxième projet était une API (Symfony) capable de gérer des événements, nous avons choisi des concerts. L’utilisateur pouvait donc s’inscrire, se désinscrire et visionner les différents concerts. Si l’utilisateur avait le rôle “organisateur” celui-ci est même capable de créer un concert."
+      image: /assets/images/concerts-api.png
+
+    - description: "Le troisième projet était donc une application utilisant le framework Vue.js qui est donc un front pour cette API. Dans cette application le statut “organisateur” a été ignoré et donc la création de concert est impossible."
+      image: /assets/images/concerts-accueil.png
+
+    - description: "Ce projet m’a permis d’approfondir énormément mes connaissances concernant JavaScript et le framework Vue.js en mettant l’accent sur l’ergonomie du site pour le rendre le plus agréable possible pour les utilisateurs. Nous avons pris le temps de faire une maquette Figma pour comprendre comment un utilisateur utiliserait le site et pour le concevoir de la manière la plus intuitive possible."
+      image: /assets/images/concerts-profile.png
+
+    - description: "Ce troisième projet est également en lien avec le premier, en effet un attribut du profil est modifiable : code unique, cet attribut également présent dans l’annuaire permet de faire le lien avec celui-ci et lorsqu’il n’est pas vide alors l’application va chercher les informations de l’annuaire pour les rajouter au profil de l’application de concert."
+      image: 
+
+  period: "Septembre 2024-Fevrier 2025"
+  type: "Projet BUT"
+  slug: concerts  
