@@ -16,6 +16,6 @@ exclude:
 collections:
   projects:
     output: true
-    permalink: /portfolio-matteo-garcia/projet/:slug/
+    permalink: /projet/:slug/
 
 permalink: pretty
