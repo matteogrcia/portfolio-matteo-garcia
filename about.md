@@ -1,5 +1,5 @@
 ---
 layout: about
 title: A propos - Portfolio Développeur
-permalink: /about/
+permalink: /portfolio-matteo-garcia/about/
 ---

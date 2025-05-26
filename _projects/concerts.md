@@ -2,5 +2,5 @@
 layout: projet
 title: Concerts
 slug: concerts
-permalink: /projet/concerts/
+permalink: /portfolio-matteo-garcia/projet/concerts/
 ---

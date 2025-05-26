@@ -2,5 +2,5 @@
 layout: projet
 title: Stageo
 slug: stageo
-permalink: /projet/stageo/
+permalink: /portfolio-matteo-garcia/projet/stageo/
 ---

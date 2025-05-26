@@ -1,5 +1,5 @@
 ---
 layout: apprentissages
 title: Compétences - Portfolio Développeur
-permalink: /apprentissages/
+permalink: /portfolio-matteo-garcia/apprentissages/
 ---
