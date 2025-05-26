@@ -15,7 +15,7 @@
 
     Il convient donc de créer une application web interne à l’Université d’Avignon, disponible à la DOSI et la RH, qui peut s’étendre à d’autres services. Celle-ci a pour objectif donc de simplifier aux fonctionnels des procédures simples et les rendre autonomes, sur une interface simple afin de limiter les échanges avec la DOSI.
 
-  image: /assets/images/popsi-accueil.png
+  image: /portfolio-matteo-garcia/assets/images/popsi-accueil.png
   technologies:
     - Symfony
     - LDAP
