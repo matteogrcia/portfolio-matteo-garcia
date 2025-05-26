@@ -12,7 +12,7 @@ layout: default
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {% for project in site.data.projects %}
             <div class="project-card group" data-aos="fade-up" data-aos-delay="{{ forloop.index | minus: 1 | times: 100 }}">
-                <a href="{{ site.baseurl }}/projet/{{ project.slug }}/" class="block">
+                <a href="{{ site.baseurl }}/portfolio-matteo-garcia/projet/{{ project.slug }}/" class="block">
                     <div class="relative overflow-hidden">
                         <img src="{{ project.image }}"
                              class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-500"
