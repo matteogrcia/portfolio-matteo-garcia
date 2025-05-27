@@ -1,6 +1,6 @@
 ---
 layout: projet
-title: Site et Application Mobile pour LABAF
+title: POPSI
 slug: popsi
 permalink: /projet/popsi/
 ---
